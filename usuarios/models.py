@@ -14,4 +14,3 @@ class estudiantes(usuario):
     
 class freelancers(usuario):
     especialidad = models.CharField(max_length=50)
-    
