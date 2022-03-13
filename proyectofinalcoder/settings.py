@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "index",
+    'usuarios',
 ]
 
 MIDDLEWARE = [
@@ -48,7 +49,7 @@ ROOT_URLCONF = 'proyectofinalcoder.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'C:\Users\Nico\Desktop\PROYECTO FINAL CODER\index\plantilla'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
