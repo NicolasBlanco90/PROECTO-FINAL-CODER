@@ -10,11 +10,15 @@ class usuario(models.Model):
         return f'{self.nombre} {self.apellido}'
     
 
-class profesionales(usuario):
-    profesion = models.CharField(max_length=50)
+class blog(models.Model):
+    blog = models.CharField(max_length=200)
     
-class estudiantes(usuario):
-    escuela = models.CharField(max_length=50)
+    def __str__(self):
+        return f'{self.blog}'
+
     
-class freelancers(usuario):
-    especialidad = models.CharField(max_length=50)
+class mensaje(models.Model):
+    mensaje = models.CharField(max_length=200)
+    
+    def __str__(self):
+        return f'{self.mensaje}'

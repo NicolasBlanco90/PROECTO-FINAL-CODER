@@ -2,7 +2,9 @@
 
 {% block header_block %}
      <h1 class="fw-bolder">Genial!</h1>
-     <p class="lead mb-0">Creaste tu usuario con exito!</p>
+     <p class="lead mb-0">Ya podes compartir tus conocimientos!</p>
+     <li class="nav-item"><a class="nav-link" href={% url 'crear_blog' %}>Escribi un Blog</a></li>
+     <li class="nav-item"><a class="nav-link" href={% url 'crear_mensaje' %}>Envia un Mensaje</a></li>
 {% endblock header_block %}
 
 {% block body_block %}
