@@ -1,0 +1,22 @@
+{% extends 'index/index.html' %}
+
+{% block header_block %}
+     <h1 class="fw-bolder">Sector de busqueda</h1>
+     <p class="lead mb-0">Ingresa algun dato del usuario que estas buscando</p>
+{% endblock header_block %}
+
+{% block body_block %}
+
+    <form action="" method="get">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <button>Buscar usuario</button>
+    </form>
+
+    {% for usuario in usuarios  %}
+    <li>{{usuario}}</li>
+    {% endfor %}
+
+{% endblock body_block %}

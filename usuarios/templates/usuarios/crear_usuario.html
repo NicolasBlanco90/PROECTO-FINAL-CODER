@@ -1,0 +1,18 @@
+{% extends 'index/index.html' %}
+
+{% block header_block %}
+     <h1 class="fw-bolder">Registrate gratis</h1>
+     <p class="lead mb-0">Completa el formulario y empeza a compartir con otros usuarios lo que quieras</p>
+{% endblock header_block %}
+
+{% block body_block %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <button>Crear usuario</button>
+    </form>
+
+{% endblock body_block %}
