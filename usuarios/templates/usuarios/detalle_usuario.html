@@ -1,0 +1,23 @@
+{% extends 'index/index.html' %}
+
+{% block header_block %}
+     <h1 class="fw-bolder">Sector de busqueda</h1>
+     <p class="lead mb-0">Ingresa algun dato del usuario que estas buscando</p>
+{% endblock header_block %}
+
+{% block body_block %}
+
+    <p>
+        <a href={% url 'usuarios' %}>Volver</a>
+    </p>
+        <li>Nombre :{{object.nombre}}</li>
+        <li>Apellido :{{object.apellido}}</li>
+        <li>E-mail :{{object.mail}}</li>
+
+    <p>
+
+    </p>
+ 
+
+
+{% endblock body_block %}

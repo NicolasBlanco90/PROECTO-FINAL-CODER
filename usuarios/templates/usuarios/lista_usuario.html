@@ -7,6 +7,10 @@
 
 {% block body_block %}
 
+    <p>
+        <a href={% url 'crear_usuario' %}>Crear Usuario</a>
+    </p>
+
     <form action="" method="get">
         {% csrf_token %}
         <table>
@@ -16,7 +20,11 @@
     </form>
 
     {% for usuario in usuarios  %}
-    <li>{{usuario}}</li>
+        <li>
+            <a href= {% url 'detalle_usuario' usuario.id %}>{{usuario}}</a> |
+            <a href= {% url 'editar_usuario' usuario.id %}>Editar</a> |
+            <a href= {% url 'borrar_usuario' usuario.id %}>Borrar</a> 
+        </li>
     {% endfor %}
 
 {% endblock body_block %}
