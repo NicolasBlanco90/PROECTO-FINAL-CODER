@@ -5,8 +5,11 @@ from .forms import UsuariosFormulario, UsuariosBusqueda, BlogFormulario, Mensaje
 from .models import usuario, blog, mensaje
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import UpdateView, DeleteView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-# Create your views here.
+
+@login_required
 def crear_usuario(request):
     
     if request.method == 'POST':
@@ -71,11 +74,11 @@ class DetalleUsuario(DetailView):
     template_name = "usuarios/detalle_usuario.html"
     
     
-class EditarUsuario(UpdateView):
+class EditarUsuario(LoginRequiredMixin,UpdateView):
     model = usuario
     success_url = "/usuarios/usuarios"
     fields = ['nombre','apellido','mail']
     
-class BorrarUsuario(DeleteView):
+class BorrarUsuario(LoginRequiredMixin,DeleteView):
     model = usuario
     success_url = "/usuarios/usuarios"

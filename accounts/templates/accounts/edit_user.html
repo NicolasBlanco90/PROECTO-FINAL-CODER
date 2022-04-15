@@ -1,0 +1,23 @@
+{% extends 'index/index.html' %}
+
+{% block header_block %}
+     <h1 class="fw-bolder">Inicia Sesion</h1>
+     {% endblock header_block %}
+
+{% block body_block %}
+    <p>
+        {% if msj %}
+            {{msj}}
+    {% endif %}
+    </p>
+    
+
+    <form action= {% url 'edit_user' %} method="post" enctype='multipart/form-data'>
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <button>Guardar cambios</button>
+    </form>
+
+{% endblock body_block %}

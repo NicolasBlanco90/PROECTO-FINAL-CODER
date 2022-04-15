@@ -22,6 +22,17 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href={% url 'index' %}>Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'usuarios' %}>Usuarios</a></li>
+                        {% if request.user.is_authenticated  %}
+                            <li class="nav-item"><a class="nav-link" href={% url 'edit_user' %}>Editar</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'logout' %}>Logout</a></li>
+                        {% else %}
+                            <li class="nav-item"><a class="nav-link" href={% url 'login' %}>Login</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'registrarse' %}>Registrarse</a></li>
+                        {% endif %}
+                        
+
+                        
+                        
                     </ul>
                 </div>
             </div>
@@ -31,8 +42,13 @@
             <div class="container">
                 <div class="text-center my-5">
                     {% block header_block %}
-                         <h1 class="fw-bolder">BIENVENIDO A BLOGPEDIA</h1>
-                         <p class="lead mb-0">La pagina donde compartis tu conocimiento</p>
+                    {% if msj %}
+                        {{msj}}
+                    {% else %}
+                        <h1 class="fw-bolder">BIENVENIDO A BLOGPEDIA</h1>
+                        <p class="lead mb-0">La pagina donde compartis tu conocimiento</p>
+                    {% endif %}
+                         
                     {% endblock header_block %}
                 </div>
             </div>
