@@ -1,0 +1,22 @@
+{% extends 'index/index.html' %}
+
+{% block header_block %}
+     <h1 class="fw-bolder">Sector de busqueda</h1>
+     <p class="lead mb-0">Ingresa algun dato del blog que estas buscando</p>
+{% endblock header_block %}
+
+{% block body_block %}
+
+    <p>
+        <a href={% url 'blogs' %}>Volver</a>
+    </p>
+    <form action="" method="post">
+        {% csrf_token %}
+        ¿Quiere borrar el blog {{object}}?
+        <button>Borrar</button>
+    </form>
+
+ 
+
+
+{% endblock body_block %}

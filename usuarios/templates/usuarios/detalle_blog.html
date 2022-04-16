@@ -1,0 +1,22 @@
+{% extends 'index/index.html' %}
+
+{% block header_block %}
+     <h1 class="fw-bolder">Sector de busqueda</h1>
+     <p class="lead mb-0">Ingresa algun dato del blog que estas buscando</p>
+{% endblock header_block %}
+
+{% block body_block %}
+
+    <p>
+        <a href={% url 'usuarios' %}>Volver</a>
+    </p>
+        <li>Blog :{{object.blog | safe }}</li>
+        <li>Fecha Creacion :{{object.fecha_creacion_blog}}}</li>
+
+    <p>
+
+    </p>
+ 
+
+
+{% endblock body_block %}

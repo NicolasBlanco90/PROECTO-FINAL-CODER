@@ -1,0 +1,29 @@
+{% extends 'index/index.html' %}
+
+{% block header_block %}
+     <h1 class="fw-bolder">Sector de busqueda</h1>
+     <p class="lead mb-0">Ingresa algun dato del blog que estas buscando</p>
+{% endblock header_block %}
+
+{% block body_block %}
+
+
+    <form action="" method="get">
+        {% csrf_token %}
+        <table>
+            {{form.media}}
+            {{form.as_table}}
+        </table>
+        <button>Buscar blog</button>
+    </form>
+    
+    {% for blog in blogs  %}
+        <li>
+            
+            <a href= {% url 'detalle_blog' blog.id %}>{{blog}}</a> |
+            <a href= {% url 'editar_blog' blog.id %}>Editar</a> |
+            <a href= {% url 'borrar_blog' blog.id %}>Borrar</a> 
+        </li>
+    {% endfor %}
+
+{% endblock body_block %}

@@ -1,7 +1,7 @@
 from pyexpat import model
 from django.shortcuts import redirect, render
 
-from .forms import UsuariosFormulario, UsuariosBusqueda, BlogFormulario, MensajeFormulario
+from .forms import UsuariosFormulario, UsuariosBusqueda, BlogFormulario, MensajeFormulario, BlogBusqueda
 from .models import usuario, blog, mensaje
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import UpdateView, DeleteView
@@ -82,3 +82,29 @@ class EditarUsuario(LoginRequiredMixin,UpdateView):
 class BorrarUsuario(LoginRequiredMixin,DeleteView):
     model = usuario
     success_url = "/usuarios/usuarios"
+    
+class DetalleBlog(DetailView):
+    model = blog
+    template_name = "usuarios/detalle_blog.html"
+    
+    
+class EditarBlog(LoginRequiredMixin,UpdateView):
+    model = blog
+    success_url = "/plantilla"
+    fields = ['blog']
+    
+class BorrarBlog(LoginRequiredMixin,DeleteView):
+    model = blog
+    success_url = "/plantilla"
+    
+def lista_blogs(request):
+    
+    blog_a_buscar = request.GET.get('blog', None)
+    
+    if blog_a_buscar is not None:
+        blogs = blog.objects.filter(blog__icontains= blog_a_buscar)
+    else:
+        blogs = blog.objects.all()
+    
+    form = BlogBusqueda()
+    return render(request,'usuarios/lista_blog.html',{'form': form, 'blogs' : blogs})

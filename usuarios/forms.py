@@ -15,9 +15,11 @@ class UsuariosBusqueda(forms.Form):
 
    
 class BlogFormulario(forms.Form):
-    blog= forms.CharField(max_length=500)
+    blog= RichTextFormField(required=False)
 
     
 class MensajeFormulario(forms.Form):
     mensaje= forms.CharField(max_length=500)
     
+class BlogBusqueda(forms.Form):
+    nombre= forms.CharField(max_length=30)

@@ -15,7 +15,11 @@ class usuario(models.Model):
     
 
 class blog(models.Model):
-    blog = models.CharField(max_length=200)
+    titulo = models.CharField(max_length=30)
+    subtitulo = models.CharField(max_length=30)
+    imagen_blog= models.ImageField(upload_to='imagen_blog',blank=True, null=True)
+    blog = RichTextField(blank= True, null=True)
+    fecha_creacion_blog = models.DateTimeField(default=timezone.now)
     
     def __str__(self):
         return f'{self.blog}'
