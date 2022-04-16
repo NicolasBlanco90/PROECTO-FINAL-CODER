@@ -1,11 +1,14 @@
 from django.db import models
+from ckeditor.fields import RichTextField
+from django.utils import timezone
 
 # Create your models here.
 class usuario(models.Model):
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)
     mail = models.EmailField()
-    material = models.CharField(max_length=500, null=True, default='')
+    material = RichTextField(blank= True, null=True)
+    fecha_creacion = models.DateTimeField(default=timezone.now)
     
     def __str__(self):
         return f'{self.nombre} {self.apellido}'

@@ -13,6 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 SECRET_KEY = os.getenv('SECRET_KEY')
+#SECRET_KEY = 'django-insecure-$b!yf*fw0o$*px!^zz&zrwn-i-d+u-4fq_&f(8nlfjup@q-))i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -33,6 +34,7 @@ INSTALLED_APPS = [
     "index",
     'usuarios',
     'accounts',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -101,7 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Argentina/Buenos_Aires'
 
 USE_I18N = True
 

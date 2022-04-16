@@ -17,7 +17,7 @@ def crear_usuario(request):
         
         if form.is_valid():
            data = form.cleaned_data
-           Usuario = usuario(nombre=data['nombre'],apellido=data['apellido'],mail=data['mail'])
+           Usuario = usuario(nombre=data['nombre'],apellido=data['apellido'],mail=data['mail'],material=data['material'])
            Usuario.save()
            return redirect('plantilla')
     
