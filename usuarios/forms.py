@@ -15,6 +15,9 @@ class UsuariosBusqueda(forms.Form):
 
    
 class BlogFormulario(forms.Form):
+    titulo = forms.CharField(max_length=30, required=False)
+    subtitulo = forms.CharField(max_length=30, required=False)
+    imagen_blog = forms.ImageField(required=False)
     blog= RichTextFormField(required=False)
 
     
