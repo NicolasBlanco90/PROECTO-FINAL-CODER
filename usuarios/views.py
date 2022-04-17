@@ -91,7 +91,7 @@ class DetalleBlog(DetailView):
 class EditarBlog(LoginRequiredMixin,UpdateView):
     model = blog
     success_url = "/plantilla"
-    fields = ['blog']
+    fields = ['titulo','subtitulo','blog','imagen_blog']
     
 class BorrarBlog(LoginRequiredMixin,DeleteView):
     model = blog
