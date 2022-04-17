@@ -8,7 +8,7 @@
 {% block body_block %}
 
     <p>
-        <a href={% url 'crear_usuario' %}>Crear Usuario</a>
+        <a href={% url 'crear_usuario' %}>Crear Perfil</a>
     </p>
 
     <form action="" method="get">
@@ -16,7 +16,7 @@
         <table>
             {{form.as_table}}
         </table>
-        <button>Buscar usuario</button>
+        <button>Buscar perfil</button>
     </form>
 
     {% for usuario in usuarios  %}
